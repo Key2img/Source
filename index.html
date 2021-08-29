@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Key2Img - Generate Keyboard Shortcut to Image in Seconds!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="styles-min.css">
+	<link rel="stylesheet" href="fontawesome/css/all.min.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="heading">
+		<h1>Key2Img</h1>
+		<p>A Keyboard Shortcut To Image Generator</p>
+	</div>
+
+	<input type="text" id="text-input" placeholder="Example: Ctrl + Alt + C"/><br><br>
+
+	<input type="radio" name="style" value="keyStyle1" id="style1" checked>
+	<label for="style1">Style 1</label>
+
+	<input type="radio" name="style" value="keyStyle2" id="style2">
+	<label for="style2">Style 2</label>
+
+	<input type="radio" name="style" value="keyStyle3" id="style3">
+	<label for="style3">Style 3</label>
+
+	<input type="radio" name="style" value="keyStyle4" id="style4">
+	<label for="style4">Style 4</label>
+	<br><br>
+
+	<p>Preview</p>
+	<div id="html-output">
+		<div id="output-location"></div>
+	</div>
+
+	<div class="btnHolder">
+		<button class="btn btn-primary" type="button" id="save-svg">SVG</button>
+		<button class="btn btn-primary" type="button" id="save-png">PNG</button>
+	</div>
+
+	<div id="preview-div">
+		<p>Generated Image - Right Click/Holder <i class="fas fa-arrow-right"></i> <q>Save Image As</q></p>
+		<div id="img-preview"></div>
+	</div>
+
+	<a id="github-stars" href="https://github.com/heyDevlopr/key2Img/">
+		<img src="https://img.shields.io/github/stars/heyDevlopr/key2Img?style=social&label=Star&maxAge=2592000" alt="Star on GitHub">
+	</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/dom-to-image.min.js"></script>
+<script src="script-min.js"></script>
+
+</body>
+</html>
