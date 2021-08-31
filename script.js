@@ -1,40 +1,47 @@
+/*
+	I Have Used Dom-To-Image (https://github.com/tsayen/dom-to-image) JavaScript Library
+	For Converting My HTML Output To An Image. More Improvements Coming Soon...
+*/
+
 var stylePrefix = $('input[name=style]:checked').val(); // stylePrefix is the value of the checked radio box. this value will be used as class name of the keys to apply a particular style to the keys
 var userText, keysArray, htmlCode = ""; // Pre Defining some variables
 
-function appendImg(imageData) {
-	let img = new Image();
-	img.src = imageData;
-	$("#img-preview").html("");
-	$("#img-preview").append(img);
-	$("#preview-div").css("display", "block");
+function appendImg(imageData) { // appendImg function to append generated image to the output div
+	let img = new Image(); // Making new Image HTML Element
+	img.src = imageData; // Changing it's Src with our imageData
+	$("#img-preview").html(""); // Emptying the output
+	$("#img-preview").append(img); // Appending the new created image element to our output
+	$("#preview-div").css("display", "block"); // And changing the output element's parent display to block
 }
 
-function saveAsPng() {
+function saveAsPng() { // Function to generate HTML to PNG
 	let element = $('#html-output'), scale = prompt("Enter the Scale: ", 2);
 
-	if (scale == null) return;
-	if (isNaN(scale) === false) scale = parseInt(scale);
-	else scale = 2;
+	if (scale == null) return; // If user clicked cancel in the prompt then return nothing to stop the function
+	if (isNaN(scale) === false) scale = parseInt(scale); // If the scale is a number either it's in string format or integer format convert it to integer format
+	else scale = 2; // If the given input is not a integer in string format or integer format than set the scale to 2
 
-	if (scale > 10) {
-		if (!confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) return;
-	}
+	if (scale > 10) if (!confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) return; // If scale is greater than 10 then confirm if the user wants to continue because I tested and any scale greater than 10 can cause performance issue
+
+	// So here I am getting the height/width of the element times the scale and rounding it to the nearest integer and getting the final number which would be divisible by 10
+	let Width = Math.round(element.width() * scale/10)*10;
+	let Height = Math.round(element.height() * scale/10)*10;
 
 	domtoimage.toPng(element[0], {
-			width: element.width() * scale,
-			height: element.height() * scale,
-			style: { transform: 'scale('+scale+')', transformOrigin: 'top left'}
+			width: Width, // Setting The width of the output Image
+			height: Height, // Setting the height of the output image
+			style: { transform: 'scale('+scale+')', transformOrigin: 'top left'} // Setting the scale and the transform origin
 		})
-		.then(function (dataUrl) { appendImg(dataUrl) })
-		.catch(function (error) { console.error('oops, something went wrong!', error); });
+		.then(function (dataUrl) { appendImg(dataUrl); $("#output-demension").text("Height: "+Height+"px, Width: "+Width) }) // calling the appendImg function and passing the generated image data as parameter and then changing the output div's text with the respective height and width
+		.catch(function (error) { alert('oops, something went wrong!\n' + error); }); // If something goes wrong calling the alert function with showing the error
 }
 
-function saveAsSvg() {
-	const filter = (node) => { return (node.tagName !== 'i'); }
+function saveAsSvg() { // Function To Generate HTML To SVG
+	const filter = (node) => { return (node.tagName !== 'i'); } // Arrow Function Which will be used to filter out all the <i> element
 
-	domtoimage.toSvg(document.getElementById('html-output'), {filter: filter})
-		.then(function (dataUrl) { appendImg(dataUrl) })
-		.catch(function (error) { console.error('oops, something went wrong!', error); });
+	domtoimage.toSvg($('#html-output')[0], {filter: filter}) // Convert finally to SVG
+		.then(function (dataUrl) { appendImg(dataUrl) }) // And then after conversion call the appendImg function passing the generated image data as an parameter
+		.catch(function (error) { alert('oops, something went wrong!\n' + error); }); // If there's an error then call alert and show the error
 }
 
 function renderKeys() {
@@ -98,7 +105,7 @@ function renderKeys() {
 	}
 
 	$('#output-location').html(htmlCode); // Finally Change the Output div's html with new one
-	return 0;
+	return 0; // IDK Why i did it here LMAO
 }
 
 $("#save-svg").on("click", saveAsSvg); // Run saveAsSvg if SVG Button is Clicked
@@ -109,4 +116,4 @@ $('input[name=style]').on("click", function (e) { // Run a Function when ever an
 	renderKeys(); // And Then Render Once Again to Update New Styles
 })
 
-window.onload = e => { renderKeys(); }
+window.onload = e => { renderKeys(); } // Calling renderKeys Function when the window loads
