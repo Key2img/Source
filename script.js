@@ -112,6 +112,9 @@ $("#save-svg").on("click", saveAsSvg); // Run saveAsSvg if SVG Button is Clicked
 $("#save-png").on("click", saveAsPng); // Run saveAsPng if PNG Button is Clicked
 $('#text-input').keyup(renderKeys); // Render the user's Input when he releases any key
 $('input[name=style]').on("click", function (e) { // Run a Function when ever any radio box for style is clicked
+	$("label[for='" + stylePrefix.toLowerCase().substring(3) + "']").css("font-weight", "normal"); // Change Font weight of last selected style checkbox to normal
+	$("label[for='" + $(this).attr('id') + "']").css("font-weight", "bold"); // Change the Font weight of currently selected Input to bold
+
 	stylePrefix = $('input[name=style]:checked').val(); // Get the clicked/checked radio box's value and assign it to the stylePrefix so that the key styles can be applied while rendering
 	renderKeys(); // And Then Render Once Again to Update New Styles
 })
