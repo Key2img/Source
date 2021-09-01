@@ -17,64 +17,99 @@
 </head>
 <body>
 <div class="wrapper">
+	<div class="heading">
+		<h1>Key2Img</h1>
+		<p>A Keyboard Shortcut To Image Generator</p>
+	</div>
+
 	<div class="controls">
-		<div class="heading">
-			<h1>Key2Img</h1>
-			<p>A Keyboard Shortcut To Image Generator</p>
+		<input type="text" id="text-input" placeholder="Example: Ctrl + Alt + C" data-title="Input" data-intro="Here You Can Add keyboard keys by Writing something and seperating it by '+'"/><br><br>
+
+		<div style="display: inline-block; padding: 10px;" class="radioBoxes">
+			<div class="style-radio" data-title="Keys Styles" data-intro="Check these checkboxes to get a particular Key Style">
+				<input type="radio" name="style" value="keyStyle1" id="style1" checked>
+				<label for="style1">Style 1</label>
+			</div>
+
+			<div class="style-radio">
+				<input type="radio" name="style" value="keyStyle2" id="style2">
+				<label for="style2">Style 2</label>
+			</div>
+
+			<div class="style-radio">
+				<input type="radio" name="style" value="keyStyle3" id="style3">
+				<label for="style3">Style 3</label>
+			</div>
+
+			<div class="style-radio">
+				<input type="radio" name="style" value="keyStyle4" id="style4">
+				<label for="style4">Style 4</label>
+			</div>
 		</div>
+		<br>
 
-		<input type="text" id="text-input" placeholder="Example: Ctrl + Alt + C"/><br><br>
-
-		<div class="style-radio">
-			<input type="radio" name="style" value="keyStyle1" id="style1" checked>
-			<label for="style1">Style 1</label>
-		</div>
-
-		<div class="style-radio">
-			<input type="radio" name="style" value="keyStyle2" id="style2">
-			<label for="style2">Style 2</label>
-		</div>
-
-		<div class="style-radio">
-			<input type="radio" name="style" value="keyStyle3" id="style3">
-			<label for="style3">Style 3</label>
-		</div>
-
-		<div class="style-radio">
-			<input type="radio" name="style" value="keyStyle4" id="style4">
-			<label for="style4">Style 4</label>
-		</div>
-		<br><br>
-
-		<p>Preview</p>
 		<div id="html-output">
 			<div id="output-location"></div>
 		</div>
 
+		<br><br>
 		<div class="btnHolder">
-			<button class="btn btn-primary" type="button" id="save-svg">SVG</button>
+			<button class="btn btn-primary" type="button" id="save-jpg">JPEG</button>
 			<button class="btn btn-primary" type="button" id="save-png">PNG</button>
 		</div>
 	</div>
 
 	<div id="preview-div">
-		<p>Generated Image - Right Click/Hold <i class="fas fa-arrow-right"></i> <q>Save Image As</q></p>
+		<p>Image - Right Click/Hold <i class="fas fa-arrow-right"></i> <q>Save Image As</q></p>
 		<p id="output-demension"></p>
 		<div id="img-preview"></div>
 	</div>
-
-	<a id="github-stars" href="https://github.com/heyDevlopr/key2Img/">
-		<img src="https://img.shields.io/github/stars/heyDevlopr/key2Img?style=social&label=Star&maxAge=2592000" alt="Star on GitHub">
-	</a>
-
-	<a title="Don't Know How To Use? Click Me" class="web-usage" href="#">
-		<i class="fa fa-question-circle"></i>
-	</a>
-
 </div>
+
+<a id="github-stars" href="https://github.com/heyDevlopr/key2Img/">
+	<img src="https://img.shields.io/github/stars/heyDevlopr/key2Img?style=social&label=Star&maxAge=2592000" alt="Star on GitHub">
+</a>
+
+<a id="web-usage" title="Don't Know How To Use? Click Me" onclick="introJs().setOptions({ steps: introSteps }).start()">
+	<i class="fa fa-question-circle"></i>
+</a>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/dom-to-image.min.js"></script>
+<script src="js/FileSaver.min.js"></script>
+<script src="js/js.cookie.min.js"></script>
+
+<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+<script>
+const introSteps = [
+	{
+		element: $(".controls")[0],
+		title: "Controls", intro: "These are your controls, using them you can modify your shortcuts"
+	},
+	{
+		element: $("#text-input")[0],
+		title: "Input Box", intro: "Using this Textbox you can make keyboard shortcuts.<br><br> Just enter some text seprated by '+' and you can add custom icons too! <a style='display: inline-block' href='customIcons.html' target='_blank'>See How</a>"
+	},
+	{
+		element: $(".radioBoxes")[0],
+		title: "Key Styles", intro: "Using these Checkboxes you can use different available Themes for keys"
+	},
+	{
+		element: $("#html-output")[0],
+		title: "Preview", intro: "This is Where your preview will be, and anything you modify will appear here."
+	},
+	{
+		element: $(".btnHolder")[0],
+		title: "Saving Image", intro: "These are save buttons, which will convert your shortcuts to image format like JPEG or PNG"
+	},
+	{
+		element: $("#web-usage")[0],
+		intro: "If you want to see this tutorial once again click this button"
+	},
+];
+</script>
+
 <script src="script-min.js"></script>
 
 </body>
