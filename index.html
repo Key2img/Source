@@ -37,7 +37,7 @@
 	<div style="margin-top: 20px;" class="controls">
 		<input id="text-input" type="text" placeholder="Example: Ctrl + Alt + C"></input>
 
-		<div>
+		<div id="radio-boxes">
 			<label>
 				<input type="radio" name="style" value="keyStyle1" id="style1" checked/>
 				<span>Style 1</span>
@@ -104,7 +104,7 @@ const introSteps = [
 		title: "Input Box", intro: "Using this Textbox you can make keyboard shortcuts.<br><br> Just enter some text seprated by '+' and you can add custom icons too! <a style='display: inline-block' href='https://key2img.ml/icons' target='_blank'>See How</a>"
 	},
 	{
-		element: $(".radioBoxes")[0],
+		element: $("#radio-boxes")[0],
 		title: "Key Styles", intro: "Using these Checkboxes you can use different available Themes for keys"
 	},
 	{
