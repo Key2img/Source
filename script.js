@@ -96,7 +96,7 @@ function renderKeys() {
 	for (let i = 0; i < keysArray.length; i++) {
 		// Replace Text With Respective Fontawesome-free-5.15.4-web HTML Code
 		keysArray[i] = keysArray[i].replace("ico.Win10", '<i class="fab fa-windows"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Mac", '<i class="fab fa-apple"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Apple", '<i class="fab fa-apple"></i>')
 		keysArray[i] = keysArray[i].replace("ico.Android", '<i class="fab fa-android"></i>')
 		keysArray[i] = keysArray[i].replace("ico.Robot", '<i class="fas fa-robot"></i>')
 		keysArray[i] = keysArray[i].replace("ico.Linux", '<i class="fab fa-linux"></i>')
@@ -135,6 +135,20 @@ function renderKeys() {
 		keysArray[i] = keysArray[i].replace("ico.Link", '<i class="fas fa-external-link-alt"></i>')
 		keysArray[i] = keysArray[i].replace("ico.Command", '⌘')
 		keysArray[i] = keysArray[i].replace("ico.Enter", '⏎')
+		keysArray[i] = keysArray[i].replace("ico.Github", '<i class="fab fa-github"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Youtube", '<i class="fab fa-youtube"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Mobile", '<i class="fas fa-mobile"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Tablet", '<i class="fas fa-tablet-alt"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Headphone", '<i class="fas fa-headphones-alt"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Mic", '<i class="fas fa-microphone"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Bluetooth", '<i class="fab fa-bluetooth"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Js", '<i class="fab fa-js"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Keyboard", '<i class="fas fa-keyboard"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Discord", '<i class="fab fa-discord"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Playstation", '<i class="fab fa-playstation"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Git", '<i class="fab fa-git-alt"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Xbox", '<i class="fab fa-xbox"></i>')
+		keysArray[i] = keysArray[i].replace("ico.Usb", '<i class="fab fa-usb"></i>')
 	}
 
 	// If Input is Empty Then Put Default Ctrl + Alt + C in HTML Preview

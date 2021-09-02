@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* { box-sizing: border-box; margin: 0; transition: all .1s ease; }
+
+body {
+	color: #333;
+	background-color: #D4E2EB;
+	font-family: 'Ubuntu', sans-serif;
+	height: 100vh; width: 100vw;
+}
+
+:root { font-size: 16px; }
+@media only screen and (min-width: 50em) { :root { font-size: 22px; } }
+@media only screen and (min-width: 25em) and (max-width: 50em) { :root { font-size: calc(16px + (22 - 16) * ((100vw - 25em) / (800 - 400))); } }
+
+p, kbd, button { font-size: 1.1rem; font-size: calc(100% + .15vw); }
+.toastjs p { font-size: 1.1rem; font-size: calc(70% + .15vw); margin-bottom: 10px; }
+kbd i { font-size: 1rem; font-size: calc(90% + .1vw); }
+h1 { font-size: 2rem;   font-size: calc(100% + 1.2vw); }
+h2 { font-size: 1.6rem; font-size: calc(100% + 1vw);   }
+
+a { text-decoration: none; color: #307EA2; }
+a:hover { color: #3998c4; }
+
+button {
+	color: #fff;
+	background-color: #307EA2;
+	padding: 10px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+button:hover { color: #fff; background-color: #3998c4; }
+
+#searchBox {
+	background-image: url('search-icon.png');
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-position: 5px;
+	width: 90%;
+	font-size: 16px;
+	padding: 12px 20px 12px 45px;
+	outline: none; border-radius: 50px;
+	border: 2px solid #ddd;
+	margin: 12px;
+}
+
+#searchBox:focus { border-color: #3998c4; }
+
+.wrapper { display: block; min-height: 93vh; text-align: center; }
+
+.info {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	padding: 10px 5px;
+	color: #1a1c1d;
+	font-size: .9rem; font-size: calc(80% + .15vw);
+}
+
+.info a { text-decoration: underline; color: #2d7394; }
+.info a:hover { color: #333; }
+
+ul { list-style-type: none; margin: 0 auto; padding: 0; max-width: 600px; }
+
+ul li {
+	border: 1px solid #ddd;
+	background-color: #f6f6f6;
+	text-decoration: none;
+	font-size: 1.3rem;
+	height: 2.5rem;
+	width: 2.5rem;
+	padding-top: .5rem;
+	text-align: center;
+	display: inline-block;
+	color: #333;
+	margin: 3px;
+	cursor: pointer;
+}
+
+ul li:hover { background-color: #fff; color: #3998c4; }
+ul li span { display: none; }
+
+.fa-spinner { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
