@@ -8,6 +8,14 @@
 	<meta name="keywords" content="keyboard to image, key2img, keyboard shortcut to image, shortcut to image, image generator, png generator, svg generator" />
 	<meta name="author" content="Aditya Mishra">
 	<meta name="description" content="A Simple Keyboard Shortcut To Image Generator Just In Seconds!">
+	<link rel="shortcut icon" href="img/Favicon.png" type="image/png">
+
+	<meta name="og:title" content="Key2Img - Generate Keyboard Shortcut to Image in Seconds!" />
+	<meta name="og:description" content="Make Simple Keyboard Shortcuts To Image Just In Few Seconds!" />
+	<meta name="og:site_name" content="Key2Img"/>
+	<link rel="canonical" href="https://heydevlopr.github.io/key2img/">
+
+	<meta name="og:image" content="img/Key2Img 1:1.png"/>
 
 	<link rel="stylesheet" href="styles-min.css">
 	<link rel="stylesheet" href="kbd-min.css">
@@ -23,30 +31,26 @@
 	</div>
 
 	<div class="controls">
-		<input type="text" id="text-input" placeholder="Example: Ctrl + Alt + C"/><br><br>
+		<input id="text-input" type="text" placeholder="Example: Ctrl + Alt + C"></input>
 
-		<div style="display: inline-block; padding: 10px;" class="radioBoxes">
-			<div class="style-radio">
-				<input type="radio" name="style" value="keyStyle1" id="style1" checked>
-				<label for="style1">Style 1</label>
-			</div>
-
-			<div class="style-radio">
-				<input type="radio" name="style" value="keyStyle2" id="style2">
-				<label for="style2">Style 2</label>
-			</div>
-
-			<div class="style-radio">
-				<input type="radio" name="style" value="keyStyle3" id="style3">
-				<label for="style3">Style 3</label>
-			</div>
-
-			<div class="style-radio">
-				<input type="radio" name="style" value="keyStyle4" id="style4">
-				<label for="style4">Style 4</label>
-			</div>
+		<div>
+			<label>
+				<input type="radio" name="style" value="keyStyle1" id="style1" checked/>
+				<span>Style 1</span>
+			</label>
+			<label>
+				<input type="radio" name="style" value="keyStyle2" id="style2"/>
+				<span>Style 2</span>
+			</label>
+			<label>
+				<input type="radio" name="style" value="keyStyle3" id="style3"/>
+				<span>Style 3</span>
+			</label>
+			<label>
+				<input type="radio" name="style" value="keyStyle4" id="style4"/>
+				<span>Style 4</span>
+			</label>
 		</div>
-		<br>
 
 		<div id="html-output">
 			<div id="output-location"></div>
@@ -78,6 +82,15 @@
 <script src="js/dom-to-image.min.js"></script>
 <script src="js/FileSaver.min.js"></script>
 <script src="js/js.cookie.min.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TQRVY3TGJL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TQRVY3TGJL');
+</script>
 
 <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
