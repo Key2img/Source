@@ -1,4 +1,4 @@
-# key2Img (Still in Development)
+# key2Img
 Keyboard Shortcuts To Image Just In Few Seconds!
 
 ---
