@@ -31,11 +31,7 @@ Yea you can make that in few seconds without any Editing Skills Needed!
 
 ---
 # Help Us By
-**Reporting Bugs [Here](https://github.com/Key2img/Key2Img/issues/new)**
-
-Or
-
-**Contributing To Our Project [Here](https://github.com/Key2img/Key2Img/pulls)**
+**Reporting Bugs [Here](https://github.com/Key2img/Key2Img/issues/new)** Or **Contributing To Our Project [Here](https://github.com/Key2img/Key2Img/pulls)**
 
 ---
 
