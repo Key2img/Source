@@ -26,8 +26,12 @@ Yea you can make that in few seconds without any Editing Skills Needed!
 * Adding More Keyboard Themes
 * Adding A Loader When Image is Being Processed
 
-# Known Bugs
-* Jpeg Scaling Issue (Scale doesn't Work when exporting Jpeg)
+# No Known Bugs
+
+---
+
+# Fixed Bugs
+* Fixed Jpeg Scaling Issue (Scale doesn't Work when exporting Jpeg is fixed)
 
 ---
 # Help Us By
