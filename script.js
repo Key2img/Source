@@ -19,6 +19,11 @@ function dataURItoBlob(dataURI) {
 	return blob;
 }
 
+function hideLoader(hide) {
+	if (hide == true) $("#loader").css("display", "none");
+	if (hide == false) $("#loader").css("display", "block");
+}
+
 function appendImg(url) { // appendImg function to append generated image to the output div
 	let img = new Image(); // Making new Image HTML Element
 	img.src = url; // Changing new image's url
@@ -28,6 +33,7 @@ function appendImg(url) { // appendImg function to append generated image to the
 }
 
 function saveAsPng() { // Function to generate HTML to PNG
+	hideLoader(false)
 	let element = $('#html-output'), scale = prompt("Enter the Scale: ", 2);
 
 	if (scale == null) return; // If user clicked cancel in the prompt then return nothing to stop the function
@@ -53,11 +59,13 @@ function saveAsPng() { // Function to generate HTML to PNG
 				appendImg(dataUrl);
 				$("#output-demension").text("Height: "+Height+"px, Width: "+Width);
 			}
+			hideLoader(true)
 		}) // calling the appendImg function and passing the generated image data as parameter and then changing the output div's text with the respective height and width
-		.catch(function (error) { alert('oops, something went wrong!\n' + error); }); // If something goes wrong calling the alert function with showing the error
+		.catch(function (error) { alert('oops, something went wrong!\n' + error); hideLoader(true) }); // If something goes wrong calling the alert function with showing the error
 }
 
 function saveAsJpeg() { // Function To Generate HTML To JPG
+	hideLoader(false)
 	let element = $('#html-output'), scale = prompt("Enter the Scale: ", 2), quality = prompt("Quality (0.1 - 1): ", 0.5);
 
 	if (scale == null || quality == null) return;
@@ -75,7 +83,7 @@ function saveAsJpeg() { // Function To Generate HTML To JPG
 			quality: quality,
 			width: Width, // Setting The width of the output Image
 			height: Height, // Setting the height of the output image
-			style: { transform: 'scale('+scale+')', transformOrigin: 'top left'} // Setting the scale and the transform origin
+			style: { transform: 'scale('+scale+')', transformOrigin: 'top left', background: "#fff"} // Setting the scale and the transform origin
 		})
 		.then(function (dataUrl) {
 			if (fileSaverSupported === true) saveAs(dataURItoBlob(dataUrl), "key2Img-"+Width+"x"+Height+".jpeg");
@@ -83,8 +91,9 @@ function saveAsJpeg() { // Function To Generate HTML To JPG
 				appendImg(dataUrl);
 				$("#output-demension").text("Height: "+Height+"px, Width: "+Width);
 			}
+			hideLoader(true)
 		})
-		.catch(function (error) { alert('oops, something went wrong!\n' + error); });
+		.catch(function (error) { alert('oops, something went wrong!\n' + error); hideLoader(true) });
 }
 
 const replaceIco = (str) => {
