@@ -64,7 +64,6 @@ function saveAsJpeg() { // Function To Generate HTML To JPG
 	if (isNaN(scale) === false || isNaN(quality) === false) { scale = parseInt(scale); quality = parseFloat(quality) }
 	if (scale === 0 || quality === 0) { scale = 1; parseFloat(0.5); }
 	if (quality > 1) quality = 0.5;
-	else scale = 1;
 
 	if (scale > 10) if (!confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) return;
 
@@ -93,62 +92,9 @@ function renderKeys() {
 	var keysArray = userText.split("+").filter(e =>  e); // Split user's input with + and remove any empty string "" using filter
 	var htmlCode = ""; // Empty variable which will store all the output code
 
+	// Replace the user's Text if it matches with the respective icon code
 	for (let i = 0; i < keysArray.length; i++) {
-		// Replace Text With Respective Fontawesome-free-5.15.4-web HTML Code
-		keysArray[i] = keysArray[i].replace("ico.Win10", '<i class="fab fa-windows"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Apple", '<i class="fab fa-apple"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Android", '<i class="fab fa-android"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Robot", '<i class="fas fa-robot"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Linux", '<i class="fab fa-linux"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Ubuntu", '<i class="fab fa-ubuntu"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Suse", '<i class="fab fa-suse"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Redhat", '<i class="fab fa-redhat"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Fedora", '<i class="fab fa-fedora"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Centos", '<i class="fab fa-centos"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Unity", '<i class="fab fa-unity"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Detective", '<i class="fas fa-user-secret"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Snapchat", '<i class="fab fa-snapchat"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Whatsapp", '<i class="fab fa-whatsapp"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Instagram", '<i class="fab fa-instagram"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Google", '<i class="fab fa-google"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Microsoft", '<i class="fab fa-microsoft"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Twitter", '<i class="fab fa-twitter"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Facebook", '<i class="fab fa-facebook"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Server", '<i class="fas fa-server"></i>')
-		keysArray[i] = keysArray[i].replace("ico.IE", '<i class="fab fa-internet-explorer"></i>')
-		keysArray[i] = keysArray[i].replace("ico.HDD", '<i class="fas fa-hdd"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Search", '<i class="fas fa-search"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Question", '<i class="far fa-question-circle"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Music", '<i class="fas fa-music"></i>')
-		keysArray[i] = keysArray[i].replace("ico.AudioMute", '<i class="fas fa-volume-mute"></i>')
-		keysArray[i] = keysArray[i].replace("ico.AudioDown", '<i class="fas fa-volume-down"></i>')
-		keysArray[i] = keysArray[i].replace("ico.AudioUp", '<i class="fas fa-volume-up"></i>')
-		keysArray[i] = keysArray[i].replace("ico.AudioOff", '<i class="fas fa-volume-off"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Forward", '<i class="fas fa-forward"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Backward", '<i class="fas fa-backward"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Home", '<i class="fas fa-home"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Chimp", '<i class="fab fa-mailchimp"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Mail", '<i class="far fa-envelope"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Laptop", '<i class="fas fa-laptop"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Star", '<i class="fas fa-star"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Terminal", '<i class="fas fa-terminal"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Link", '<i class="fas fa-external-link-alt"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Command", '⌘')
-		keysArray[i] = keysArray[i].replace("ico.Enter", '⏎')
-		keysArray[i] = keysArray[i].replace("ico.Github", '<i class="fab fa-github"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Youtube", '<i class="fab fa-youtube"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Mobile", '<i class="fas fa-mobile"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Tablet", '<i class="fas fa-tablet-alt"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Headphone", '<i class="fas fa-headphones-alt"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Mic", '<i class="fas fa-microphone"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Bluetooth", '<i class="fab fa-bluetooth"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Js", '<i class="fab fa-js"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Keyboard", '<i class="fas fa-keyboard"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Discord", '<i class="fab fa-discord"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Playstation", '<i class="fab fa-playstation"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Git", '<i class="fab fa-git-alt"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Xbox", '<i class="fab fa-xbox"></i>')
-		keysArray[i] = keysArray[i].replace("ico.Usb", '<i class="fab fa-usb"></i>')
+		if (iconMap[keysArray[i]] != undefined) keysArray[i] = keysArray[i].replace(keysArray[i], iconMap[keysArray[i]])
 	}
 
 	// If Input is Empty Then Put Default Ctrl + Alt + C in HTML Preview

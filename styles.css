@@ -73,7 +73,7 @@ label span:before { content: ""; box-shadow: inset 0 0 0 0.125em #307EA2; backgr
 #icons-list { position: absolute; bottom: 5px; left: 5px; font-size: 1.5rem; cursor: pointer; }
 
 .btnHolder, .controls { display: inline-block; }
-.controls { max-height: 50vh; user-select: none; }
+.controls { max-height: 50vh; user-select: none; margin-top: 20px; }
 
 #preview-div { display: none; max-height: 45vh; border: 1px dashed; margin: 20px 15px; }
 #preview-div p:first-of-type { margin-top: 10px; user-select: none; }

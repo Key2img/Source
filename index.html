@@ -20,8 +20,8 @@
 	<meta name="twitter:title" content="Key2Img"/>
 	<meta name="twitter:image" content="https://key2img.ml/img/Key2Img.png"/>
 
-	<link rel="stylesheet" href="styles-min.css">
-	<link rel="stylesheet" href="kbd-min.css">
+	<link rel="stylesheet" href="minified/styles-min.css">
+	<link rel="stylesheet" href="minified/kbd-min.css">
 	<link rel="stylesheet" href="fontawesome/css/all.min.css">
 	<link rel="shortcut icon" href="img/Favicon.png">
 
@@ -34,10 +34,10 @@
 		<p>A Keyboard Shortcut To Image Generator</p>
 	</div>
 
-	<div style="margin-top: 20px;" class="controls">
+	<div class="controls">
 		<input id="text-input" type="text" placeholder="Example: Ctrl + Alt + C"></input>
 
-		<div id="radio-boxes">
+		<div>
 			<label>
 				<input type="radio" name="style" value="keyStyle1" id="style1" checked/>
 				<span>Style 1</span>
@@ -104,7 +104,7 @@ const introSteps = [
 		title: "Input Box", intro: "Using this Textbox you can make keyboard shortcuts.<br><br> Just enter some text seprated by '+' and you can add custom icons too! <a style='display: inline-block' href='https://key2img.ml/icons' target='_blank'>See How</a>"
 	},
 	{
-		element: $("#radio-boxes")[0],
+		element: $(".radioBoxes")[0],
 		title: "Key Styles", intro: "Using these Checkboxes you can use different available Themes for keys"
 	},
 	{
@@ -122,7 +122,8 @@ const introSteps = [
 ];
 </script>
 
-<script src="script-min.js"></script>
+<script src="minified/iconMap-min.js"></script>
+<script src="minified/script-min.js"></script>
 
 </body>
 </html>
