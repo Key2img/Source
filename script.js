@@ -87,15 +87,16 @@ function saveAsJpeg() { // Function To Generate HTML To JPG
 		.catch(function (error) { alert('oops, something went wrong!\n' + error); });
 }
 
+const replaceIco = (str) => {
+	return str.split(' ').map((s) => iconMap[s] ?? s).join(' ');
+};
+
 function renderKeys() {
 	var userText = $('#text-input').val(); // User's Input Text
-	var keysArray = userText.split("+").filter(e =>  e); // Split user's input with + and remove any empty string "" using filter
+	var keysArray = userText.split("+").map(replaceIco); // Split user's input with + and replace any icon code in the array items with the corresponding HTML code given in iconMap.js
+	keysArray = $.map(keysArray, $.trim); // Trim any extra space in start or end of any item in the Array
+	keysArray = keysArray.filter(item => item); // Remove empty strings from the array
 	var htmlCode = ""; // Empty variable which will store all the output code
-
-	// Replace the user's Text if it matches with the respective icon code
-	for (let i = 0; i < keysArray.length; i++) {
-		if (iconMap[keysArray[i]] != undefined) keysArray[i] = keysArray[i].replace(keysArray[i], iconMap[keysArray[i]])
-	}
 
 	// If Input is Empty Then Put Default Ctrl + Alt + C in HTML Preview
 	if (userText == "") {
