@@ -34,7 +34,7 @@ function appendImg(url) { // appendImg function to append generated image to the
 
 function saveAsPng() { // Function to generate HTML to PNG
 	hideLoader(false)
-	let element = $('#html-output'), scale = prompt("Enter the Scale: ", 2);
+	let element = $('#htmlCode'), scale = prompt("Enter the Scale: ", 2);
 
 	if (scale == null) return; // If user clicked cancel in the prompt then return nothing to stop the function
 	if (isNaN(scale) === false) scale = parseInt(scale); // If the scale is a number either it's in string format or integer format convert it to integer format
@@ -66,7 +66,7 @@ function saveAsPng() { // Function to generate HTML to PNG
 
 function saveAsJpeg() { // Function To Generate HTML To JPG
 	hideLoader(false)
-	let element = $('#html-output'), scale = prompt("Enter the Scale: ", 2), quality = prompt("Quality (0.1 - 1): ", 0.5);
+	let element = $('#htmlCode'), scale = prompt("Enter the Scale: ", 2), quality = prompt("Quality (0.1 - 1): ", 0.5);
 
 	if (scale == null || quality == null) return;
 	if (isNaN(scale) === false || isNaN(quality) === false) { scale = parseInt(scale); quality = parseFloat(quality) }
@@ -118,12 +118,12 @@ function renderKeys() {
 		}
 	}
 
-	$('#output-location').html(htmlCode); // Finally Change the Output div's html with new one
+	$('#kbdCode').html(htmlCode); // Finally Change the Output div's html with new one
 	return 0; // IDK Why i did it here LMAO
 }
 
-$("#save-jpg").on("click", saveAsJpeg); // Run saveAsJpeg if Jpeg Button is Clicked
-$("#save-png").on("click", saveAsPng); // Run saveAsPng if PNG Button is Clicked
+$("#saveJpg").on("click", saveAsJpeg); // Run saveAsJpeg if Jpeg Button is Clicked
+$("#savePng").on("click", saveAsPng); // Run saveAsPng if PNG Button is Clicked
 $('#text-input').keyup(renderKeys); // Render the user's Input when he releases any key
 $('input[name=style]').on("click", function (e) { // Run a Function when ever any radio box for style is clicked
 	stylePrefix = $('input[name=style]:checked').val(); // Get the clicked/checked radio box's value and assign it to the stylePrefix so that the key styles can be applied while rendering

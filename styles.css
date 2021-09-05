@@ -62,10 +62,9 @@ label span:hover { background-color: #307EA2; color: #fff; }
 label span:before { content: ""; box-shadow: inset 0 0 0 0.125em #307EA2; background: #fff; width: 1rem; height: 1rem; border-radius: 50%; margin-right: 0.375em; transition: 0.25s ease; }
 
 .heading { margin-bottom: 10px; text-align: center; }
-
-#html-output { white-space: nowrap; display: inline-block; }
-#output-location { width: 100%; border-radius: 3px; margin: 20px auto; padding: 0 20px; }
-#output-location:not(kbd) { font-size: calc(70% + 1vw); font-weight: 600; }
+#htmlCode { white-space: nowrap; display: inline-block; }
+#kbdCode { width: 100%; border-radius: 3px; margin: 20px auto; padding: 0 20px; }
+#kbdCode:not(kbd) { font-size: calc(70% + 1vw); font-weight: 600; }
 #img-preview img { max-width: 100%; max-height: 40vh; }
 
 #github-stars { position: fixed; bottom: 5px; right: 10px; }
