@@ -24,7 +24,7 @@ Yea you can make that in few seconds without any Editing Skills Needed!
 * Add More Image Export Formats (Currently Jpeg, Png Are Available)
 * Adding A Dark Theme For the Website
 * Adding More Keyboard Themes
-* Adding A Loader When Image is Being Processed
+* (Done) Adding A Loader When Image is Being Processed
 
 # No Known Bugs
 
