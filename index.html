@@ -37,7 +37,7 @@
 	<div class="controls">
 		<input id="text-input" type="text" placeholder="Example: Ctrl + Alt + C"></input>
 
-		<div>
+		<div class="radioBoxes">
 			<label>
 				<input type="radio" name="style" value="keyStyle1" id="style1" checked/>
 				<span>Style 1</span>
@@ -107,10 +107,6 @@ const introSteps = [
 	{
 		element: $(".radioBoxes")[0],
 		title: "Key Styles", intro: "Using these Checkboxes you can use different available Themes for keys"
-	},
-	{
-		element: $("#html-output")[0],
-		title: "Preview", intro: "This is Where your preview will be, and anything you modify will appear here."
 	},
 	{
 		element: $(".btnHolder")[0],
