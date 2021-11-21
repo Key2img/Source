@@ -54,3 +54,5 @@ const iconMap = {
 	"ico.Xbox": '<i class="fab fa-xbox"></i>',
 	"ico.Usb": '<i class="fab fa-usb"></i>',
 }
+
+export default iconMap;

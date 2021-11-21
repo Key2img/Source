@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,10 +20,10 @@
 	<meta name="twitter:title" content="Key2Img"/>
 	<meta name="twitter:image" content="https://key2img.ml/img/Key2Img.png"/>
 
-	<link rel="stylesheet" href="minified/styles-min.css">
-	<link rel="stylesheet" href="minified/kbd-min.css">
-	<link rel="stylesheet" href="fontawesome/css/all.min.css">
-	<link rel="shortcut icon" href="img/Favicon.png">
+	<link rel="stylesheet" href="../src/styles/styles.css">
+	<link rel="stylesheet" href="../src/styles/kbd.css">
+	<link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
+	<link rel="shortcut icon" href="../static/img/Favicon.png">
 
 	<title>Key2Img - Generate Keyboard Shortcut to Image in Seconds!</title>
 </head>
@@ -87,10 +87,10 @@
 	<i class="fab fa-font-awesome"></i>
 </a>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/dom-to-image.min.js"></script>
-<script src="js/FileSaver.min.js"></script>
-<script src="js/js.cookie.min.js"></script>
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/dom-to-image.min.js"></script>
+<script src="../static/js/FileSaver.min.js"></script>
+<script src="../static/js/js.cookie.min.js"></script>
 
 <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
@@ -118,9 +118,15 @@ const introSteps = [
 	},
 ];
 </script>
+<script type="module" src="../src/index.js"></script>
 
-<script src="minified/iconMap-min.js"></script>
-<script src="minified/script-min.js"></script>
+<!-- <div>
+	<select id="currency" name="currency">
+		<option>Style 1</option>
+		<option>Style 2</option>
+		<option>Style 3</option>
+	</select>
+</div> -->
 
 </body>
 </html>

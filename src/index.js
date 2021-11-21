@@ -1,7 +1,4 @@
-/*
-	I Have Used Dom-To-Image (https://github.com/tsayen/dom-to-image) JavaScript Library
-	For Converting My HTML Output To An Image. More Improvements Coming Soon...
-*/
+import iconMap from "../static/iconMap";
 
 var stylePrefix = $('input[name=style]:checked').val(); // stylePrefix is the value of the checked radio box. this value will be used as class name of the keys to apply a particular style to the keys
 var userText = "", keysArray = "", htmlCode = "", fileSaverSupported; // Pre Defining some variables

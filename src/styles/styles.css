@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+:root {
+	--col1: #EF476F;
+	--col2: #FFD166;
+	--col3: #06D6A0;
+	--col4: #118AB2;
+	--col5: #073B4C;
+	--col6: #EA7317;
+	--col7: #040F0F;
+}
+
 * { box-sizing: border-box; margin: 0; transition: all .3s ease; }
 
 body {
