@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="../src/styles/kbd.css">
 	<link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
 	<link rel="shortcut icon" href="../static/img/Favicon.png">
+	<link rel="stylesheet" href="../node_modules/intro.js/minified/introjs.min.css">
 
 	<title>Key2Img - Generate Keyboard Shortcut to Image in Seconds!</title>
 </head>
@@ -38,22 +39,12 @@
 		<input id="text-input" type="text" placeholder="Example: Ctrl + Alt + C"></input>
 
 		<div class="radioBoxes">
-			<label>
-				<input type="radio" name="style" value="keyStyle1" id="style1" checked/>
-				<span>Style 1</span>
-			</label>
-			<label>
-				<input type="radio" name="style" value="keyStyle2" id="style2"/>
-				<span>Style 2</span>
-			</label>
-			<label>
-				<input type="radio" name="style" value="keyStyle3" id="style3"/>
-				<span>Style 3</span>
-			</label>
-			<label>
-				<input type="radio" name="style" value="keyStyle4" id="style4"/>
-				<span>Style 4</span>
-			</label>
+			<select id="keyStyles" name="keyStyles">
+				<option value="keyStyle1">Style 1</option>
+				<option value="keyStyle2">Style 2</option>
+				<option value="keyStyle3">Style 3</option>
+				<option value="keyStyle4">Style 4</option>
+			</select>
 		</div>
 
 		<div id="htmlCode">
@@ -79,7 +70,7 @@
 	<img style="height: 1.3rem;" src="https://img.shields.io/github/stars/key2Img/key2Img?style=social&label=Star&maxAge=2592000">
 </a>
 
-<a id="web-usage" title="Don't Know How To Use? Click Me" onclick="introJs().setOptions({ steps: introSteps }).start()">
+<a id="web-usage" title="Don't Know How To Use? Click Me">
 	<i class="fa fa-question-circle"></i>
 </a>
 
@@ -87,46 +78,7 @@
 	<i class="fab fa-font-awesome"></i>
 </a>
 
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/dom-to-image.min.js"></script>
-<script src="../static/js/FileSaver.min.js"></script>
-<script src="../static/js/js.cookie.min.js"></script>
-
-<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
-<script>
-const introSteps = [
-	{
-		element: $(".controls")[0],
-		title: "Tutorial", intro: "These are your controls, using them you can modify your shortcuts"
-	},
-	{
-		element: $("#text-input")[0],
-		title: "Input Box", intro: "Using this Textbox you can make keyboard shortcuts.<br><br> Just enter some text seprated by '+' and you can add custom icons too! <a style='display: inline-block' href='https://key2img.ml/icons' target='_blank'>See How</a>"
-	},
-	{
-		element: $(".radioBoxes")[0],
-		title: "Key Styles", intro: "Using these Checkboxes you can use different available Themes for keys"
-	},
-	{
-		element: $(".btnHolder")[0],
-		title: "Saving Image", intro: "These are save buttons, which will convert your shortcuts to image format like JPEG or PNG"
-	},
-	{
-		element: $("#web-usage")[0],
-		intro: "If you want to see this tutorial once again click this button"
-	},
-];
-</script>
 <script type="module" src="../src/index.js"></script>
-
-<!-- <div>
-	<select id="currency" name="currency">
-		<option>Style 1</option>
-		<option>Style 2</option>
-		<option>Style 3</option>
-	</select>
-</div> -->
 
 </body>
 </html>

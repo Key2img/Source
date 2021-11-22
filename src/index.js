@@ -1,6 +1,12 @@
+import $ from "jquery";
+import { saveAs } from "file-saver";
+import domtoimage from "dom-to-image";
+import Cookies from "js-cookie";
+import introJs from "intro.js";
 import iconMap from "../static/iconMap";
+import introSteps from "../static/introSteps"
 
-var stylePrefix = $('input[name=style]:checked').val(); // stylePrefix is the value of the checked radio box. this value will be used as class name of the keys to apply a particular style to the keys
+var stylePrefix = $('#keyStyles').val(); // stylePrefix is the value of the checked radio box. this value will be used as class name of the keys to apply a particular style to the keys
 var userText = "", keysArray = "", htmlCode = "", fileSaverSupported; // Pre Defining some variables
 
 try { let isFileSaverSupported = !!new Blob; fileSaverSupported = true; }
@@ -122,17 +128,19 @@ function renderKeys() {
 $("#saveJpg").on("click", saveAsJpeg); // Run saveAsJpeg if Jpeg Button is Clicked
 $("#savePng").on("click", saveAsPng); // Run saveAsPng if PNG Button is Clicked
 $('#text-input').keyup(renderKeys); // Render the user's Input when he releases any key
-$('input[name=style]').on("click", function (e) { // Run a Function when ever any radio box for style is clicked
-	stylePrefix = $('input[name=style]:checked').val(); // Get the clicked/checked radio box's value and assign it to the stylePrefix so that the key styles can be applied while rendering
-	renderKeys(); // And Then Render Once Again to Update New Styles
+$("#keyStyles").on("change", () => { // Run a function when someone selects a new Option
+	stylePrefix = $('#keyStyles').val(); // set the stylePrefix to the currently selected value
+	renderKeys(); // Render the keys with new selected options
 })
 
 window.onload = e => {
 	// Cookies.remove("firstTime");
 	if (Cookies.get("firstTime") == undefined) {
-		Cookies.set('firstTime', 'no', { expires: 365 });
+		Cookies.set('firstTime', 'no', { expires: 3652.5 }); // 3652.5 is 10 years
 		introJs().setOptions({ steps: introSteps }).start();
 	}
+
+	$("#web-usage").on("click", () => introJs().setOptions({ steps: introSteps }).start())
 
 	renderKeys(); // Calling renderKeys Function when the window loads
 }

@@ -3,12 +3,33 @@
 	"version": "1.0.0",
 	"description": "A simple tailwind starter project with parcel",
 	"scripts": {
-		"clean": "rm -rf dist/* && mv CNAME dist/",
-		"start": "npm run clean && parcel watch --public-url ./ public/index.html",
-		"build": "npm run clean && parcel build --public-url ./ public/index.html"
+		"clean": "rm -rf dist/* && cp CNAME dist/",
+		"start": "npm run clean && parcel watch --public-url ./",
+		"build": "npm run clean && parcel build --public-url ./",
+		"start434t": "npm run clean && parcel watch --public-url ./ public/index.html",
+		"build4fd": "npm run clean && parcel build --public-url ./ public/index.html"
 	},
 	"license": "MIT",
+	"targets": {
+		"dist": {
+			"source": "public/index.html",
+			"distDir": "dist/"
+		},
+		"icons": {
+			"source": "public/icons/index.html",
+			"distDir": "dist/icons/"
+		}
+	},
 	"devDependencies": {
 		"parcel": "^2.0.1"
+	},
+	"dependencies": {
+		"clipboard": "^2.0.8",
+		"dom-to-image": "^2.6.0",
+		"egalink-toasty.js": "^1.5.5",
+		"file-saver": "^2.0.5",
+		"intro.js": "^4.3.0",
+		"jquery": "^3.6.0",
+		"js-cookie": "^3.0.1"
 	}
 }
