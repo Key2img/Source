@@ -1,9 +1,9 @@
 {
-	"name": "tailwindcss-parcel-starter",
+	"name": "key2img",
 	"version": "1.0.0",
 	"description": "A simple tailwind starter project with parcel",
 	"scripts": {
-		"clean": "rm -rf dist/",
+		"clean": "rm -rf dist/*",
 		"start": "npm run clean && parcel watch --public-url ./ public/index.html",
 		"build": "npm run clean && parcel build --public-url ./ public/index.html"
 	},
