@@ -3,8 +3,8 @@ import { saveAs } from "file-saver";
 import domtoimage from "dom-to-image";
 import Cookies from "js-cookie";
 import introJs from "intro.js";
-import iconMap from "../static/iconMap";
-import introSteps from "../static/introSteps"
+import iconMap from "../../static/iconMap";
+import introSteps from "../../static/introSteps"
 
 var stylePrefix = $('#keyStyles').val(); // stylePrefix is the value of the checked radio box. this value will be used as class name of the keys to apply a particular style to the keys
 var userText = "", keysArray = "", htmlCode = "", fileSaverSupported; // Pre Defining some variables
