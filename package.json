@@ -16,8 +16,8 @@
 			"distDir": "dist/"
 		},
 		"icons": {
-			"source": "public/icons/index.html",
-			"distDir": "dist/icons/"
+			"source": "public/icons.html",
+			"distDir": "dist/"
 		}
 	},
 	"devDependencies": {
