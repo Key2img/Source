@@ -5,9 +5,7 @@
 	"scripts": {
 		"clean": "rm -rf dist/* && cp CNAME dist/",
 		"start": "npm run clean && parcel watch --public-url ./",
-		"build": "npm run clean && parcel build --public-url ./",
-		"start434t": "npm run clean && parcel watch --public-url ./ public/index.html",
-		"build4fd": "npm run clean && parcel build --public-url ./ public/index.html"
+		"build": "npm run clean && parcel build --public-url ./"
 	},
 	"license": "MIT",
 	"targets": {
