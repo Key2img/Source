@@ -4,7 +4,7 @@
 	"description": "A simple tailwind starter project with parcel",
 	"scripts": {
 		"clean": "rm -rf dist/* && cp CNAME dist/",
-		"start": "npm run clean && parcel watch --public-url ./",
+		"dev": "npm run clean && parcel watch --public-url ./",
 		"build": "npm run clean && parcel build --public-url ./"
 	},
 	"license": "MIT",
