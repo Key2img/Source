@@ -96,7 +96,6 @@ select:disabled:hover, select[aria-disabled="true"]:hover { border-color: #999; 
 #kbdCode:not(kbd) { font-size: calc(70% + 1vw); font-weight: 600; }
 #img-preview img { max-width: 100%; max-height: 40vh; }
 
-#github-stars { position: fixed; bottom: 5px; right: 10px; }
 #web-usage { position: fixed; top: 5px; left: 5px; font-size: 1.5rem; cursor: pointer; }
 #icons-list { position: fixed; bottom: 5px; left: 5px; font-size: 1.5rem; cursor: pointer; }
 
