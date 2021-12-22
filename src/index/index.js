@@ -4,7 +4,7 @@ import domtoimage from "dom-to-image";
 import Cookies from "js-cookie";
 import introJs from "intro.js";
 import iconMap from "../../static/iconMap";
-import introSteps from "../../static/introSteps"
+import introSteps from "../../static/introSteps";
 
 var stylePrefix = $('#keyStyles').val(); // stylePrefix is the value of the checked radio box. this value will be used as class name of the keys to apply a particular style to the keys
 var userText = "", keysArray = "", htmlCode = "", fileSaverSupported; // Pre Defining some variables
@@ -12,6 +12,7 @@ var userText = "", keysArray = "", htmlCode = "", fileSaverSupported; // Pre Def
 try { let isFileSaverSupported = !!new Blob; fileSaverSupported = true; }
 catch (e) { fileSaverSupported = false; }
 
+// Convert base64 data to Blob
 function dataURItoBlob(dataURI) {
 	var byteString = atob(dataURI.split(',')[1]);
 	var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
@@ -22,7 +23,7 @@ function dataURItoBlob(dataURI) {
 	return blob;
 }
 
-function hideLoader(hide) {
+function hideLoader(hide) { // Will be used To Hide/Unhide The Loader while generating the Image.
 	if (hide == true) $("#loader").css("display", "none");
 	if (hide == false) $("#loader").css("display", "block");
 }
@@ -43,9 +44,12 @@ function saveAsPng() { // Function to generate HTML to PNG
 	if (isNaN(scale) === false) scale = parseInt(scale); // If the scale is a number either it's in string format or integer format convert it to integer format
 	else scale = 2; // If the given input is not a integer in string format or integer format than set the scale to 2
 
-	if (scale > 10) if (!confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) return; // If scale is greater than 10 then confirm if the user wants to continue because I tested and any scale greater than 10 can cause performance issue
+	// If scale is greater than 10 then confirm if the user wants to continue because I tested and any scale greater than 10 can cause performance issue
+	if (scale > 10 && !confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) {
+		return;
+	}
 
-	/*  So here I am getting the height/width of the element times the scale
+	/* So here I am getting the height/width of the element times the scale
 		and rounding it to the nearest integer and getting the final number
 		which would be divisible by 10 */
 	let Width = Math.round(element.width() * scale/10)*10;
@@ -68,17 +72,21 @@ function saveAsPng() { // Function to generate HTML to PNG
 }
 
 function saveAsJpeg() { // Function To Generate HTML To JPG
-	hideLoader(false)
-	let element = $('#htmlCode'), scale = prompt("Enter the Scale: ", 2), quality = prompt("Quality (0.1 - 1): ", 0.5);
+	hideLoader(false) // Unhide The Loader
+	let element = $('#htmlCode');
+	let scale = prompt("Enter the Scale: ", 2);
+	let quality = prompt("Quality (0.1 - 1): ", 0.5);
 
 	if (scale == null || quality == null) return;
 	if (isNaN(scale) === false || isNaN(quality) === false) { scale = parseInt(scale); quality = parseFloat(quality) }
 	if (scale === 0 || quality === 0) { scale = 1; parseFloat(0.5); }
 	if (quality > 1) quality = 0.5;
 
-	if (scale > 10) if (!confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) return;
+	if (scale > 10 && !confirm("Are You Sure? Scale More than 10 Can Make your Device Lag")) {
+		return;
+	}
 
-	//  So Here's some dope Einstein level calculation done here, you better don't try to understand it
+	// So Here's some dope Einstein level calculation done here, you better don't try to understand it
 	let Width = Math.round(element.width() * scale/10)*10;
 	let Height = Math.round(element.height() * scale/10)*10;
 
@@ -86,17 +94,29 @@ function saveAsJpeg() { // Function To Generate HTML To JPG
 			quality: quality,
 			width: Width, // Setting The width of the output Image
 			height: Height, // Setting the height of the output image
-			style: { transform: 'scale('+scale+')', transformOrigin: 'top left', background: "#fff"} // Setting the scale and the transform origin
+			style: { // Setting the scale and the transform origin
+				transform: 'scale('+scale+')',
+				transformOrigin: 'top left',
+				background: "#fff"
+			}
 		})
 		.then(function (dataUrl) {
-			if (fileSaverSupported === true) saveAs(dataURItoBlob(dataUrl), "key2Img-"+Width+"x"+Height+".jpeg");
-			else {
-				appendImg(dataUrl);
-				$("#output-demension").text("Height: "+Height+"px, Width: "+Width);
+			// Check if fileSaver is Supported
+			if (fileSaverSupported === true) {
+				// If File Saver is Supported Save The File.
+				saveAs(dataURItoBlob(dataUrl), "key2Img-"+Width+"x"+Height+".jpeg");
+			} else {
+				// If File Saver is not supported then Append the image to html so that user can manually download the image.
+				appendImg(dataUrl); // Append The Image To HTML
+				$("#output-demension").text(`Height: ${Height}px, Width: ${Width}px`); // Add the Image properties (height width) To HTML
 			}
-			hideLoader(true)
+			hideLoader(true) // Hide the Loader
 		})
-		.catch(function (error) { alert('oops, something went wrong!\n' + error); hideLoader(true) });
+		.catch((err) => {
+			console.error(err)
+			alert('oops, something went wrong!\n' + err);
+			hideLoader(true)
+		});
 }
 
 const replaceIco = (str) => {
@@ -139,6 +159,17 @@ window.onload = e => {
 		Cookies.set('firstTime', 'no', { expires: 3652.5 }); // 3652.5 is 10 years
 		introJs().setOptions({ steps: introSteps }).start();
 	}
+
+	var fontLink = $('#font-link')
+	var fontSelector = $('#fontStyles')
+	var htmlPreview = $('#htmlCode')
+
+	htmlPreview.css('font-family', "'Poppins', sans-serif")
+
+	fontSelector.on('change', () => {
+		fontLink.attr('href', `https://fonts.googleapis.com/css?family=${fontSelector.val()}&display=swap`)
+		htmlPreview.css('font-family', `${$("#fontStyles option:selected" ).text()}, 'Poppins', sans-serif`)
+	});
 
 	$("#web-usage").on("click", () => introJs().setOptions({ steps: introSteps }).start())
 
