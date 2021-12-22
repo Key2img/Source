@@ -91,6 +91,7 @@ select:disabled, select[aria-disabled="true"] { cursor: not-allowed; background-
 select:disabled:hover, select[aria-disabled="true"]:hover { border-color: #999; }
 
 .heading { margin-bottom: 10px; text-align: center; }
+
 #htmlCode { white-space: nowrap; display: inline-block; }
 #kbdCode { width: 100%; border-radius: 3px; margin: 20px auto; padding: 0 20px; }
 #kbdCode:not(kbd) { font-size: calc(70% + 1vw); font-weight: 600; }
