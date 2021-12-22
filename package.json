@@ -24,7 +24,6 @@
 	"dependencies": {
 		"clipboard": "^2.0.8",
 		"dom-to-image": "^2.6.0",
-		"egalink-toasty.js": "^1.5.5",
 		"file-saver": "^2.0.5",
 		"intro.js": "^4.3.0",
 		"jquery": "^3.6.0",
