@@ -6,6 +6,9 @@ import introJs from "intro.js";
 import iconMap from "../../static/iconMap";
 import introSteps from "../../static/introSteps";
 
+import { SvelteToast, toast } from '@zerodevx/svelte-toast'
+new SvelteToast({ target: document.body })
+
 /* stylePrefix is the value of the checked radio box.
    this value will be used as class name of the keys to
    apply a particular style to the keys */
@@ -111,7 +114,7 @@ async function saveAsPng() { // Function to generate HTML to PNG
 		}) // calling the appendImg function and passing the generated image data as parameter and then changing the output div's text with the respective height and width
 		.catch(function (err) {
 			console.error(err)
-			new Toast({ message: `oops, something went wrong!,\n${err}`, type: 'danger' });
+			toast.push(`oops, something went wrong!,\n${err}`, { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}})
 			hideLoader(true)
 		}); // If something goes wrong calling the alert function with showing the error
 }
@@ -156,17 +159,17 @@ async function saveAsJpeg() { // Function To Generate HTML To JPG
 			// Check if fileSaver is Supported
 			if (fsSupported === true) {
 				// If File Saver is Supported Save The File.
-				saveAs(dataURItoBlob(dataUrl), "key2Img-"+Width+"x"+Height+".jpeg");
+				saveAs(dataURItoBlob(dataUrl), `key2Img-${Width}x${Height}.jpeg`);
 			} else {
 				// If File Saver is not supported then Append the image to html so that user can manually download the image.
 				appendImg(dataUrl); // Append The Image To HTML
-				$("#output-demension").text(`Height: ${Height}px, Width: ${Width}px`); // Add the Image properties (height width) To HTML
+				$("#output-demension").text(`Resolution: ${Width}x${Height}`); // Add the Image properties (height width) To HTML
 			}
 			hideLoader(true) // Hide the Loader
 		})
 		.catch((err) => {
 			console.error(err)
-			new Toast({ message: `oops, something went wrong!,\n${err}`, type: 'danger' });
+			toast.push(`oops, something went wrong!,\n${err}`, { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}})
 			hideLoader(true)
 		});
 }
@@ -184,12 +187,12 @@ async function renderKeys() {
 
 	// If Input is Empty Then Put Default Ctrl + Alt + C in HTML Preview
 	if (userText == "") {
-		htmlCode = "<kbd class="+stylePrefix+">Ctrl</kbd>+<kbd class="+stylePrefix+">Alt</kbd>+<kbd class="+stylePrefix+">C</kbd>";
+		htmlCode = `<kbd class=${stylePrefix}>Ctrl</kbd>+<kbd class=${stylePrefix}>Alt</kbd>+<kbd class=${stylePrefix}>C</kbd>`
 	}
 	else {
 		for (let i = 0; i < keysArray.length; i++) { // Run a For Loop
-			if (i == keysArray.length - 1) htmlCode += "<kbd class="+stylePrefix+">"+ keysArray[i] + "</kbd>"; // If the current element is the last element then don't use + in the end
-			else htmlCode += "<kbd class="+stylePrefix+">"+ keysArray[i] + "</kbd>+"; // Else Put code with +
+			if (i == keysArray.length - 1) htmlCode += `<kbd class=${stylePrefix}>${keysArray[i]}</kbd>`; // If the current element is the last element then don't use + in the end
+			else htmlCode += `<kbd class=${stylePrefix}>${keysArray[i]}</kbd>+`; // Else Put code with +
 		}
 	}
 
@@ -199,7 +202,7 @@ async function renderKeys() {
 
 $("#saveJpg").on("click", saveAsJpeg); // Run saveAsJpeg if Jpeg Button is Clicked
 $("#savePng").on("click", saveAsPng); // Run saveAsPng if PNG Button is Clicked
-$('#text-input').keyup(renderKeys); // Render the user's Input when he releases any key
+$('#text-input').on("keyup",renderKeys); // Render the user's Input when he releases any key
 $("#keyStyles").on("change", () => { // Run a function when someone selects a new Option
 	stylePrefix = $('#keyStyles').val(); // set the stylePrefix to the currently selected value
 	renderKeys(); // Render the keys with new selected options
@@ -208,7 +211,7 @@ $("#keyStyles").on("change", () => { // Run a function when someone selects a ne
 window.onload = async (e) => {
 	// Cookies.remove("firstTime");
 	if (Cookies.get("firstTime") == undefined) {
-		Cookies.set('firstTime', 'no', { expires: 3652.5 }); // 3652.5 is 10 years
+		Cookies.set('firstTime', 'no', { expires: 36525 }); // 36525 is 100 years
 		introJs().setOptions({ steps: introSteps }).start();
 	}
 
@@ -227,7 +230,7 @@ window.onload = async (e) => {
 				return;
 			} else if (customFonts.includes(fontName.replace(/ /g, '+').trim())) {
 				fontSelector.val(fontName.replace(/ /g, '+').trim())
-				new Toast({ message: 'The font is already in the dropdown menu.', type: 'danger' });
+				toast.push('The font is already in the dropdown menu.', { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}})
 				return;
 			}
 
@@ -238,7 +241,7 @@ window.onload = async (e) => {
 				await fetch(`https://fonts.googleapis.com/css?family=${fontCode}&display=swap`)					
 			} catch (error) {
 				fontSelector.val("Poppins");
-				new Toast({ message: "Font doesn't exist.", type: 'danger' });
+				toast.push("Font doesn't exist.", { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}})
 				return;
 			}
 
