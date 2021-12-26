@@ -1,6 +1,7 @@
 import $ from "jquery";
 import ClipboardJS from "clipboard";
-
+import { SvelteToast, toast } from '@zerodevx/svelte-toast'
+new SvelteToast({ target: document.body })
 
 function filterIcons() {
 	var input, filter, li, i, txtValue;
@@ -17,13 +18,12 @@ function filterIcons() {
 window.onload = e => {
 	var clipboard = new ClipboardJS('li');
 	clipboard.on('success', function(e) {
-		new Toast({ message: 'Icon code successfully copied to clipboard!', type: 'success' });
-		// console.info('Text:', e.text);
+		toast.push('Icon code successfully copied to clipboard!', {theme: {'--toastBackground': '#48BB78', '--toastBarBackground': '#2F855A'}})
 	});
 
 	clipboard.on('error', function(e) {
-		new Toast({ message: 'Due to unknown error, unable to copy the icon code', type: 'danger' });
+		toast.push('Due to unknown error, unable to copy the icon code', { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}})
 	});
 
-	new Toast({ message: 'Click on the icon, and icon code will be copied', type: 'info' });
+	toast.push('Click on the icon, and icon code will be copied');
 }
