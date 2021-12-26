@@ -1,7 +1,7 @@
 {
 	"name": "key2img",
 	"version": "1.0.0",
-	"description": "A simple tailwind starter project with parcel",
+	"description": "Make Simple Keyboard Shortcuts Image Just In Few Seconds!",
 	"scripts": {
 		"clean": "rm -rf dist/* && cp CNAME dist/",
 		"dev": "npm run clean && parcel watch --public-url ./",
@@ -22,6 +22,7 @@
 		"parcel": "^2.0.1"
 	},
 	"dependencies": {
+		"@zerodevx/svelte-toast": "^0.6.2",
 		"clipboard": "^2.0.8",
 		"dom-to-image": "^2.6.0",
 		"file-saver": "^2.0.5",
