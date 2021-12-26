@@ -63,9 +63,9 @@ button:hover { color: #fff; background-color: #3998c4; }
 .info a { text-decoration: underline; color: #2d7394; }
 .info a:hover { color: #333; }
 
-ul { list-style-type: none; margin: 0 auto; padding: 0; max-width: 600px; }
+ul:not(._toastContainer) { list-style-type: none; margin: 0 auto; padding: 0; max-width: 600px; }
 
-ul li {
+ul:not(._toastContainer) li {
 	border: 1px solid #ddd;
 	background-color: #f6f6f6;
 	text-decoration: none;
@@ -80,8 +80,8 @@ ul li {
 	cursor: pointer;
 }
 
-ul li:hover { background-color: #fff; color: #3998c4; }
-ul li span { display: none; }
+ul:not(._toastContainer) li:hover { background-color: #fff; color: #3998c4; }
+ul:not(._toastContainer) li span { display: none; }
 
 .fa-spinner { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
