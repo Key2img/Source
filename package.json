@@ -4,7 +4,7 @@
 	"description": "Make Simple Keyboard Shortcuts Image Just In Few Seconds!",
 	"scripts": {
 		"clean": "rm -rf dist/* && cp CNAME dist/",
-		"dev": "npm run clean && parcel watch --public-url ./",
+		"dev": "npm run clean && parcel",
 		"build": "npm run clean && parcel build --public-url ./"
 	},
 	"license": "MIT",
