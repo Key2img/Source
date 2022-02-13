@@ -6,8 +6,47 @@ import introJs from "intro.js";
 import iconMap from "../../static/iconMap";
 import introSteps from "../../static/introSteps";
 
+import Pickr from '@simonwep/pickr';
+import '@simonwep/pickr/dist/themes/nano.min.css';
+
 import { SvelteToast, toast } from '@zerodevx/svelte-toast'
 new SvelteToast({ target: document.body })
+
+// Simple example, see optional options for more configuration.
+const pickr = Pickr.create({
+	el: '#colorPicker',
+	theme: 'nano', // or 'monolith', or 'nano'
+
+	components: {
+
+		// Main components
+		preview: true,
+		opacity: true,
+		hue: true,
+
+		// Input / output Options
+		interaction: {
+			hex: true,
+			rgba: false,
+			hsla: false,
+			hsva: false,
+			cmyk: false,
+			input: true,
+			clear: true,
+			save: false
+		}
+	}
+});
+
+pickr.on('change', (color, source, instance) => {
+	let elem = document.getElementById("htmlCode");
+	if (color.a == 0) {
+		elem.className = "transparent";
+	} else {
+		elem.style.backgroundColor = '#' + color.toHEXA().join('');
+		elem.className = "";
+	}
+})
 
 /* stylePrefix is the value of the checked radio box.
    this value will be used as class name of the keys to
@@ -219,23 +258,23 @@ window.onload = async (e) => {
 	var fontSelector = $('#fontStyles')
 	var htmlPreview = $('#htmlCode')
 
-	htmlPreview.css('font-family', "'Poppins', sans-serif")
+	htmlPreview.css('font-family', "'Poppins', sans-serif");
 
 	fontSelector.on('change', async () => {
 		if (fontSelector.val() == "Custom") {
-			let fontName = prompt("Enter a font name from 'fonts.google.com'")
+			let fontName = prompt("Enter a font name from 'fonts.google.com'");
 
 			if (fontName == null || fontName == "") {
-				fontSelector.val("Poppins")
+				fontSelector.val("Poppins");
 				return;
 			} else if (customFonts.includes(fontName.replace(/ /g, '+').trim())) {
-				fontSelector.val(fontName.replace(/ /g, '+').trim())
-				toast.push('The font is already in the dropdown menu.', { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}})
+				fontSelector.val(fontName.replace(/ /g, '+').trim());
+				toast.push('The font is already in the dropdown menu.', { theme: {'--toastBackground': '#F56565', '--toastBarBackground': '#C53030'}});
 				return;
 			}
 
-			fontName.trim()
-			let fontCode = fontName.replace(/ /g, '+')
+			fontName.trim();
+			let fontCode = fontName.replace(/ /g, '+');
 
 			try {
 				await fetch(`https://fonts.googleapis.com/css?family=${fontCode}&display=swap`)					
