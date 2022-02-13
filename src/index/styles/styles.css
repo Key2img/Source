@@ -10,7 +10,7 @@
 	--col7: #040F0F;
 }
 
-* { box-sizing: border-box; margin: 0; transition: none; }
+* { box-sizing: border-box; margin: 0; transition: all .3s ease; }
 
 body {
 	color: #333;
@@ -93,31 +93,6 @@ select:disabled:hover, select[aria-disabled="true"]:hover { border-color: #999; 
 .heading { margin-bottom: 10px; text-align: center; }
 
 #htmlCode { white-space: nowrap; display: inline-block; }
-#htmlCode.transparent {
-	background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.0980392) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.0980392) 75%, rgba(0, 0, 0, 0.0980392) 0), -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.0980392) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.0980392) 75%, rgba(0, 0, 0, 0.0980392) 0), white;
-	background: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0.0980392) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.0980392) 75%, rgba(0, 0, 0, 0.0980392) 0), -moz-linear-gradient(45deg, rgba(0, 0, 0, 0.0980392) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.0980392) 75%, rgba(0, 0, 0, 0.0980392) 0), white;
-	background: linear-gradient(45deg, rgba(0, 0, 0, 0.0980392) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.0980392) 75%, rgba(0, 0, 0, 0.0980392) 0), linear-gradient(45deg, rgba(0, 0, 0, 0.0980392) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.0980392) 75%, rgba(0, 0, 0, 0.0980392) 0), white;
-	background-repeat: repeat, repeat;
-	background-position: 0px 0, 10px 10px;
-	-webkit-transform-origin: 0 0 0;
-	transform-origin: 0 0 0;
-	-webkit-background-origin: padding-box, padding-box;
-	background-origin: padding-box, padding-box;
-	-webkit-background-clip: border-box, border-box;
-	background-clip: border-box, border-box;
-	-webkit-background-size: 20px 20px, 20px 20px;
-	background-size: 20px 20px, 20px 20px;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	text-shadow: none;
-	-webkit-transition: none;
-	-moz-transition: none;
-	-o-transition: none;
-	transition: none;
-	-webkit-transform: scaleX(1) scaleY(1) scaleZ(1);
-	transform: scaleX(1) scaleY(1) scaleZ(1);
-}
-
 #kbdCode { width: 100%; border-radius: 3px; margin: 20px auto; padding: 0 20px; }
 #kbdCode:not(kbd) { font-size: calc(70% + 1vw); font-weight: 600; }
 #img-preview img { max-width: 100%; max-height: 40vh; }
@@ -127,9 +102,6 @@ select:disabled:hover, select[aria-disabled="true"]:hover { border-color: #999; 
 
 .btnHolder, .controls { display: inline-block; }
 .controls { max-height: 50vh; user-select: none; margin-top: 20px; }
-.radioBoxes {
-	margin-bottom: 20px;
-}
 
 #preview-div { display: none; max-height: 45vh; border: 1px dashed; margin: 20px 15px; }
 #preview-div p:first-of-type { margin-top: 10px; user-select: none; }
